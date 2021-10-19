@@ -5,7 +5,7 @@ base on `page.js` for route and `animejs` for animation.
 
 1. create a `routes.js` to define the routes
 
-``` 
+```javascript
 
     // transitions: noAnimation, fade, parallax
     
@@ -33,9 +33,11 @@ base on `page.js` for route and `animejs` for animation.
     }
 ```
 
+
+
 2. create `Router` component instance
 
-```
+```javascript
 <Router {routes} keepFresh={false} />
 ```
 
@@ -56,7 +58,8 @@ The page component is cached by default, if you don't want cache the page you ca
 ### exmaple
 
 *Home.svelte*
-```
+
+```javascript
 <div>This is a normal svelte component</div>
 <script>
 
@@ -73,7 +76,7 @@ The page component is cached by default, if you don't want cache the page you ca
 </script>
 ```
 
-#### Page transitions
+### Page transitions
 
 There are three default transitions buildin. `fade`, `parallax` and `noAnimation` default is `parallax`
 

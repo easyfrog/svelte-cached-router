@@ -50,8 +50,7 @@
 
 	/////////////////////////////////
 
-
-	import page from "page";
+	import page from "page.js";
 	import { onMount, createEventDispatcher, tick } from "svelte";
 
 	import * as transitions from "../js/transitions";
