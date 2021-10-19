@@ -2,7 +2,7 @@
 A svelte router that could cache the page component and works locally
 base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs](https://github.com/juliangarnier/anime/) for animation.
 
-### screenshot
+## screenshot
 
 <img src="./assets/cached-router-min.gif" alt="">
 
@@ -42,10 +42,11 @@ base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs
 2. create `Router` component instance
 
 ```javascript
-<Router {routes} />
+<!-- create Router instance and set default transition -->
+<Router {routes} transition='parallax' />
 ```
 
-### page component's props and callback functions
+## page component's props and callback functions
 
 page can be any svelte component
 
@@ -59,7 +60,7 @@ The page component is cached by default, if you don't want cache the page you ca
     - shown
     - hidden
 
-### exmaple
+## exmaple
 
 *Home.svelte*
 
@@ -80,7 +81,27 @@ The page component is cached by default, if you don't want cache the page you ca
 </script>
 ```
 
-### Page transitions
+## access Page.js instance
+
+You can use any `page.js` funcitions: `router.navigate`
+
+
+```
+<Router bind:this={router} {routes} />
+
+<script>
+    onMount(() => {
+        ...
+        // router.navigate = page.js
+        router.navigate.show('/abut');
+        router.navigate.redirect('/setting')
+        ...
+    })
+</script>
+
+```
+
+## Page transitions
 
 There are three default transitions buildin. `fade`, `parallax` and `noAnimation` default is `parallax`
 
