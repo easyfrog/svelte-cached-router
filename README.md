@@ -41,7 +41,7 @@ base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs
 
 2. create `Router` component instance
 
-```javascript
+```svelte
 <!-- create Router instance and set default transition -->
 <Router {routes} transition='parallax' />
 ```
@@ -86,7 +86,7 @@ The page component is cached by default, if you don't want cache the page you ca
 You can use any `page.js` funcitions: `router.navigate`
 
 
-```
+```svelte
 <Router bind:this={router} {routes} />
 
 <script>
