@@ -48,9 +48,11 @@ base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs
 
 ## page component's props and callback functions
 
-page can be any svelte component
+page can be any svelte component, and has some *OPTIONAL* special properties and callback functions.
 
-The page component is cached by default, if you don't want cache the page you can define a property `keepFresh = true` then the page could recreated verytime
+The page component will cached by default, if you don't want cache the page you can define a property `keepFresh = true` then the page will recreate verytime
+
+#### optional properties and callbacks:
 
 * props:
     - keepFresh:  default is false
@@ -60,16 +62,21 @@ The page component is cached by default, if you don't want cache the page you ca
     - shown
     - hidden
 
-## exmaple
+## page component exmaple
 
-*Home.svelte*
+*Home.svelte* : the home page component
 
 ```javascript
 <div>This is a normal svelte component</div>
 <script>
 
-    // DO NOT CAHCE THIS PAGE COMPONENT
+    // this component cache or not
+    // true: DO NOT CAHCE THIS PAGE COMPONENT
     export const keepFresh = true;
+
+    export function preShow() {
+        console.log('Home page is preShow');
+    }
 
     export function shown() {
         console.log('Home page is shown');
@@ -77,6 +84,10 @@ The page component is cached by default, if you don't want cache the page you ca
 
     export function preHide() {
         console.log('Home page is preHide');
+    }
+
+    export function hidden() {
+        console.log('Home page is hidden')
     }
 </script>
 ```
