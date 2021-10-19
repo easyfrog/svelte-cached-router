@@ -20,8 +20,9 @@ base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs
 
             }
         },
-        '/about/:something': {
+        '/about/:something': {              // something's value use when component create, props
             component: About,
+            keepFresh: true,                // recreate everytime
             transition: {                   // transition with props
                 type: 'fade',
                 params: {
@@ -72,7 +73,7 @@ The page component will cached by default, if you don't want cache the page you 
 
     // this component cache or not
     // true: DO NOT CAHCE THIS PAGE COMPONENT
-    export const keepFresh = true;
+    export let keepFresh = true;
 
     export function preShow() {
         console.log('Home page is preShow');
