@@ -63,6 +63,9 @@
 	// default swap page transition
 	export var transition = 'parallax';
 
+	// export page instance
+	export const navigate = page;
+
 	var wrap;
 
 	// {Home: {dom:, comp:, component:, route:}}
