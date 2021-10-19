@@ -195,7 +195,8 @@
 		// analyze routes
 		Object.keys(routes).forEach(key => {
 
-			page(key, () => {
+			// ctx.params
+			page(key, (ctx, next) => {
 
 				var component = routes[key].component;
 
@@ -213,7 +214,12 @@
 					})
 					wrap.appendChild(div);
 
-					var comp = new component({target: div, props: routes[key].props});
+					var props = routes[key].props || {};
+
+					// use ctx.params
+					Object.assign(props, ctx.params);
+
+					var comp = new component({target: div, props});
 
 					tick().then(() => {
 						var compData = {
