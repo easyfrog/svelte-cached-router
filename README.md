@@ -1,6 +1,10 @@
 # svelte-cached-router
 A svelte router that could cache the page component and works locally
-base on `page.js` for route and `animejs` for animation.
+base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs](https://github.com/juliangarnier/anime/) for animation.
+
+### screenshot
+
+<img src="./assets/cached-router-min.gif" alt="">
 
 
 1. create a `routes.js` to define the routes
