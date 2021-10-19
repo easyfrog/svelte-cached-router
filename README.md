@@ -39,9 +39,9 @@ base on `page.js` for route and `animejs` for animation.
 <Router {routes} keepFresh={false} />
 ```
 
-#### page component's props and callback functions
+### page component's props and callback functions
 
-page can any svelte component
+page can be any svelte component
 
 The page component is cached by default, if you don't want cache the page you can define a property `keepFresh = true` then the page could recreated verytime
 
@@ -53,12 +53,14 @@ The page component is cached by default, if you don't want cache the page you ca
     - shown
     - hidden
 
-#### exmaple
+### exmaple
 
 *Home.svelte*
 ```
 <div>This is a normal svelte component</div>
 <script>
+
+    // DO NOT CAHCE THIS PAGE COMPONENT
     export const keepFresh = true;
 
     export function shown() {
