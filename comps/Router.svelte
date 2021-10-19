@@ -95,6 +95,11 @@
 			var dir = 1;
 
 			var history = window.history;
+
+			if (!history.state) {
+				return dir;
+			}
+
 			var time = history.state.time;
 
 			if (lastTimestamp && time) {
