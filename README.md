@@ -20,7 +20,7 @@ base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs
 
             }
         },
-        '/about': {
+        '/about/:something': {
             component: About,
             transition: {                   // transition with props
                 type: 'fade',

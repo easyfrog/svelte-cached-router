@@ -203,7 +203,9 @@
 			// ctx.params
 			page(key, (ctx, next) => {
 
-				var component = routes[key].component;
+				var route = routes[key];
+
+				var component = route.component;
 
 				var cache = comps[component.name];
 
@@ -219,12 +221,16 @@
 					})
 					wrap.appendChild(div);
 
-					var props = routes[key].props || {};
+					var props = route.props || {};
 
 					// use ctx.params
 					Object.assign(props, ctx.params);
 
 					var comp = new component({target: div, props});
+
+					if (route.keepFresh !== undefined) {
+						comp.keepFresh = route.keepFresh;
+					}
 
 					tick().then(() => {
 						var compData = {
@@ -232,7 +238,8 @@
 							comp,
 							dom: div,
 							route: key,
-							transition: routes[key].transition
+							keepFresh: route.keepFresh,
+							transition: route.transition
 						}
 
 						// keepFresh 不进行缓存, 每次重新创建

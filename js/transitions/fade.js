@@ -18,6 +18,12 @@ export function fade(cur, pre, dir, params) {
 
 	cur.dom.style.display = 'block';
 
+	Object.assign(cur.dom.style, {
+		display: 'block',
+		opacity: 1,
+		transform: 'translate(0, 0) rotate(0)'
+	})
+
 	anime({
 		targets: cur.dom,
 		duration: params.duration || 300,

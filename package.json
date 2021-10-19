@@ -1,6 +1,6 @@
 {
   "name": "svelte-cached-router",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "A svelte router that could cache the page component and works locally",
   "main": "index.js",
   "scripts": {
