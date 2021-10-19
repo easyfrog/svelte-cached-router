@@ -42,7 +42,7 @@ base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs
 2. create `Router` component instance
 
 ```javascript
-<Router {routes} keepFresh={false} />
+<Router {routes} />
 ```
 
 ### page component's props and callback functions
