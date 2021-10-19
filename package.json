@@ -1,0 +1,41 @@
+{
+  "name": "svelte-cached-router",
+  "version": "1.0.0",
+  "description": "A svelte router that could cache the page component and works locally",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easyfrog/svelte-cached-router.git"
+  },
+  "keywords": [
+    "svelte",
+    "cached",
+    "router"
+  ],
+  "author": "ooomap.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/easyfrog/svelte-cached-router/issues"
+  },
+  "homepage": "https://github.com/easyfrog/svelte-cached-router#readme",
+  "eslintConfig": {
+    "root": true,
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "sourceType": "module",
+      "allowImportExportEverywhere": true,
+      "requireConfigFile": false
+    }
+  },
+  "devDependencies": {
+    "svelte": "^3.44.0"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "page.js": "^4.13.3"
+  }
+}
