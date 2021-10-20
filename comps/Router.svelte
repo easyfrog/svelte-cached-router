@@ -2,6 +2,8 @@
 
 </div>
 
+<Loading bind:this={loading} />
+
 <script>
 
 	/////////////////////////////////
@@ -15,6 +17,7 @@
 	export var routes = {
 		'/': {
 			component: Home,
+			preload: () => {}, 				// return a {res: {}}, the 'res' will add to props
 			props: {   						// component with props, use default transition
 
 			}
@@ -50,8 +53,9 @@
 
 	/////////////////////////////////
 
-	import page from "page";
+	import page from "page.js";
 	import { onMount, createEventDispatcher, tick } from "svelte";
+	import Loading from "./Loading.svelte";
 
 	import * as transitions from "../js/transitions";
 
@@ -66,7 +70,7 @@
 	// export page instance
 	export const navigate = page;
 
-	var wrap;
+	var wrap, loading;
 
 	// {Home: {dom:, comp:, component:, route:}}
 	var comps = {};
@@ -192,6 +196,29 @@
 		return transitions[trans.type](cur, pre, dir, params);
 	}
 
+	// data: routes[key].preload
+	function _getPreload(data) {
+		return function (ctx, next) {
+			if (data.preload) {
+				dispatcher('loading', data)
+				loading.visible = true;
+				data.preload(ctx).then((res) => {
+
+					loading.visible = false;
+					dispatcher('loaded', data);
+
+					// attach res to ctx.params
+					Object.assign(ctx.params, res);
+
+					next();
+
+				})
+			} else {
+				next();
+			}
+		}
+	}
+
 	/**
 	 * 设置路由数据
 	 */
@@ -200,9 +227,10 @@
 		// analyze routes
 		Object.keys(routes).forEach(key => {
 
-			// ctx.params
-			page(key, (ctx, next) => {
+			var _preload = _getPreload(routes[key]);
 
+			// ctx.params
+			page(key, _preload, (ctx, next) => {
 				var route = routes[key];
 
 				var component = route.component;
@@ -210,7 +238,7 @@
 				var cache = comps[component.name];
 
 				// first create component
-				if (!cache) {
+				if (!cache || !cache.comp) {
 
 					// create a component wrap div
 					var div = document.createElement('div');
@@ -225,6 +253,8 @@
 
 					// use ctx.params
 					Object.assign(props, ctx.params);
+
+					console.log('ctx.params', ctx.params);
 
 					var comp = new component({target: div, props});
 
@@ -250,6 +280,12 @@
 						toPage(compData);
 					})
 				} else {
+
+					// set preload and params to the cache component
+					cache.comp.$set(ctx.params);
+
+					console.log('ctx...params', ctx.params);
+
 					tick().then(() => {
 						toPage(cache);
 					})
