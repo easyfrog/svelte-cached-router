@@ -254,8 +254,6 @@
 					// use ctx.params
 					Object.assign(props, ctx.params);
 
-					console.log('ctx.params', ctx.params);
-
 					var comp = new component({target: div, props});
 
 					if (route.keepFresh !== undefined) {
@@ -283,8 +281,6 @@
 
 					// set preload and params to the cache component
 					cache.comp.$set(ctx.params);
-
-					console.log('ctx...params', ctx.params);
 
 					tick().then(() => {
 						toPage(cache);
