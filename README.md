@@ -19,7 +19,7 @@ base on [page.js](https://github.com/visionmedia/page.js) for route and [animejs
 
             // preload funciton: return a Promise and resolve an object
             // the object's key and value will attach to ctx.params 
-            // add will set to component's props
+            // and will set to component's props
             preload: () => {return new Promise.resolve({prop1:, prop2:})},  
             props: {                        // component with props, use default transition
 
