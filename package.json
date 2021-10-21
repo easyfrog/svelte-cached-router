@@ -37,6 +37,6 @@
   },
   "dependencies": {
     "animejs": "^3.2.1",
-    "page.js": "^4.13.3"
+    "page": "^1.11.6"
   }
 }

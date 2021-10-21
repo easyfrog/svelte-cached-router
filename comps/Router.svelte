@@ -1,4 +1,4 @@
-<div bind:this={wrap} class="wrap" style="max-width: 100%; overflow: hidden;{style}">
+<div bind:this={wrap} class="wrap" style="max-width: 100%;overflow: hidden;{style}">
 
 </div>
 
@@ -53,7 +53,7 @@
 
 	/////////////////////////////////
 
-	import page from "page.js";
+	import page from "page";
 	import { onMount, createEventDispatcher, tick } from "svelte";
 	import Loading from "./Loading.svelte";
 
@@ -244,8 +244,9 @@
 					var div = document.createElement('div');
 					Object.assign(div.style, {
 						position: 'absolute',
-						maxWidth: '100%',
-						overflow: 'hidden'
+						overflow: 'hidden',
+						width: '100%',
+						height: '100%'
 					})
 					wrap.appendChild(div);
 
