@@ -1,4 +1,4 @@
-<div bind:this={wrap} class="wrap" style="max-width: 100%;overflow: hidden;{style}">
+<div bind:this={wrap} class="page-wrap" style="/*max-width: 100%;*/overflow: hidden;{style}">
 
 </div>
 
