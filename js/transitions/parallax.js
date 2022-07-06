@@ -96,7 +96,6 @@ export function parallax(cur, pre, dir, params) {
 		pre.dom.style.zIndex = 1;
 	}
 
-
 	// new or forward
 	if (dir > 0) {
 		if (pre) {

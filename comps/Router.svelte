@@ -255,6 +255,9 @@
 					// use ctx.params
 					Object.assign(props, ctx.params);
 
+					// add router to component
+					props.router = self
+
 					var comp = new component({target: div, props});
 
 					if (route.keepFresh !== undefined) {

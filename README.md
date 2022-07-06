@@ -62,6 +62,7 @@ The page component will cached by default, if you don't want cache the page you 
 
 * props:
     - keepFresh:  default is false
+    - router:     Router instance
 * callbacks:
     - preShow
     - preHide
@@ -79,6 +80,11 @@ The page component will cached by default, if you don't want cache the page you 
     // this component cache or not
     // true: DO NOT CAHCE THIS PAGE COMPONENT
     export let keepFresh = true;
+
+    // Router instance
+    // auto set by svelte-cached-router
+    // so you can use router in you component
+    export let router
 
     export function preShow() {
         console.log('Home page is preShow');
