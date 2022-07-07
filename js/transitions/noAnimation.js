@@ -10,6 +10,8 @@ export function noAnimation (cur, pre, dir, params) {
 		transform: 'translate(0, 0) scale(1) rotate(0)'
 	})
 
+	cur.dom.style.pointerEvents = 'auto';
+
 	if (params.callback) {
 		params.callback();
 	}

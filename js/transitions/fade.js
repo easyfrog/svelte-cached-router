@@ -35,6 +35,7 @@ export function fade(cur, pre, dir, params) {
 			cur.dom.style.display = 'block';
 		},
 		complete: function () {
+			cur.dom.style.pointerEvents = 'auto';
 			if (params.callback) {
 				params.callback();
 			}
